@@ -24,11 +24,10 @@ html {
 .cv {
     position:absolute;
     top: 10px;
-    left: 0;
-    right: 0;
+    left: 20px;
+    right: 20px;
+    max-width: 800px;
     margin: auto;
-    width: 40%;
-    min-width: 400px;
     text-align: justify;
     overscroll-behavior: contain;
     background-color: #1D1D1B;
