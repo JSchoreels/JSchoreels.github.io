@@ -1,0 +1,164 @@
+/* Static CV page styled after the Awesome-CV PDF. No external resource. */
+@font-face { font-family: "Roboto"; font-weight: 100; font-style: normal; font-display: swap; src: url("fonts/Roboto-Thin.ttf") format("truetype"); }
+@font-face { font-family: "Roboto"; font-weight: 300; font-style: normal; font-display: swap; src: url("fonts/Roboto-Light.ttf") format("truetype"); }
+@font-face { font-family: "Roboto"; font-weight: 400; font-style: normal; font-display: swap; src: url("fonts/Roboto-Regular.ttf") format("truetype"); }
+@font-face { font-family: "Roboto"; font-weight: 700; font-style: normal; font-display: swap; src: url("fonts/Roboto-Bold.ttf") format("truetype"); }
+@font-face { font-family: "Source Sans 3"; font-weight: 300; font-style: normal; font-display: swap; src: url("fonts/SourceSans3-Light.otf") format("opentype"); }
+@font-face { font-family: "Source Sans 3"; font-weight: 400; font-style: normal; font-display: swap; src: url("fonts/SourceSans3-Regular.otf") format("opentype"); }
+@font-face { font-family: "Source Sans 3"; font-weight: 400; font-style: italic; font-display: swap; src: url("fonts/SourceSans3-RegularIt.otf") format("opentype"); }
+@font-face { font-family: "Source Sans 3"; font-weight: 600; font-style: normal; font-display: swap; src: url("fonts/SourceSans3-Semibold.otf") format("opentype"); }
+@font-face { font-family: "Source Sans 3"; font-weight: 700; font-style: normal; font-display: swap; src: url("fonts/SourceSans3-Bold.otf") format("opentype"); }
+@font-face { font-family: "Source Sans 3"; font-weight: 700; font-style: italic; font-display: swap; src: url("fonts/SourceSans3-BoldIt.otf") format("opentype"); }
+
+:root {
+  --accent: #B52110;      /* awesome-red */
+  --text: #505050;
+  --gray: #272727;        /* graytext */
+  --light: #808080;       /* lighttext */
+  --dark: #000000;        /* darktext */
+  --rule: #808080;
+  --bg: #ffffff;
+  --body: "Source Sans 3", "Source Sans Pro", "Helvetica Neue", Arial, sans-serif;
+  --head: "Roboto", "Helvetica Neue", Arial, sans-serif;
+  --gutter: 48px;
+}
+
+* { box-sizing: border-box; }
+html { -webkit-text-size-adjust: 100%; text-size-adjust: 100%; }
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--text);
+  font-family: var(--body);
+  font-size: 16px;
+  line-height: 1.45;
+}
+a { color: inherit; text-decoration: none; }
+a:hover { text-decoration: underline; }
+p, ul, h1, h2, h3, table { margin: 0; padding: 0; }
+
+.page { max-width: 880px; margin: 0 auto; padding: 40px var(--gutter) 32px; }
+
+/* Keywords (\KW) */
+.kw { color: var(--accent); font-weight: 700; }
+a.kw:hover { text-decoration: underline; }
+
+/* Header */
+.masthead { text-align: center; margin-bottom: 8px; }
+.name { font-family: var(--head); font-size: clamp(2.1rem, 9vw, 3.75rem); line-height: 1.1; font-weight: 400; }
+.name .first { font-weight: 100; color: var(--gray); }
+.name .last { font-weight: 700; color: var(--text); }
+.position {
+  font-variant-caps: small-caps; letter-spacing: .02em;
+}
+.masthead .position { margin-top: 6px; font-size: 1rem; color: var(--accent); }
+.contacts {
+  list-style: none; margin-top: 12px;
+  display: flex; flex-wrap: wrap; justify-content: center; gap: 4px 20px;
+  font-family: var(--head); font-size: .82rem; color: var(--text);
+}
+.contacts li, .contacts a { display: inline-flex; align-items: center; gap: 6px; }
+.contacts a:hover { color: var(--accent); text-decoration: none; }
+.icon { width: .95em; height: .95em; fill: currentColor; flex: none; }
+.actions { margin-top: 16px; display: flex; justify-content: center; gap: 10px; flex-wrap: wrap; }
+.button {
+  font-family: var(--head); font-size: .8rem; line-height: 1; padding: 8px 14px;
+  border: 1px solid var(--accent); border-radius: 3px; color: var(--accent); background: transparent;
+}
+.button.primary { background: var(--accent); color: #fff; }
+.button:hover { text-decoration: none; filter: brightness(1.1); }
+.button:not(.primary):hover { background: #fbeceb; filter: none; }
+.button:focus-visible, summary:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; }
+
+/* Sections */
+.section { margin-top: 28px; }
+.section > summary {
+  display: flex; align-items: center; gap: 10px; cursor: pointer;
+  list-style: none; user-select: none; -webkit-tap-highlight-color: transparent;
+}
+.section > summary::-webkit-details-marker { display: none; }
+.section > summary::marker { content: ""; }
+.section h2 { font-size: 1.9rem; line-height: 1.2; font-weight: 700; color: var(--accent); }
+.rule { flex: 1; height: 1px; background: var(--rule); margin-top: 6px; }
+.chevron {
+  width: 8px; height: 8px; flex: none; margin: 4px 4px 0 2px; opacity: .35;
+  border-right: 2px solid var(--light); border-bottom: 2px solid var(--light);
+  transform: rotate(45deg); transition: transform .15s ease, opacity .15s ease;
+}
+.section > summary:hover .chevron { opacity: .9; }
+.section:not([open]) .chevron { transform: rotate(-45deg); }
+.section-body { margin-top: 14px; }
+
+/* Text blocks */
+.paragraphs p { font-size: 1rem; margin-bottom: .9em; hyphens: auto; }
+.paragraphs p:last-child { margin-bottom: 0; }
+
+.skills { border-collapse: collapse; width: 100%; font-size: 1rem; }
+.skills th {
+  width: 1%; white-space: nowrap; text-align: right; vertical-align: top;
+  padding: 3px 14px 3px 0; font-size: 1.05rem; font-weight: 700; color: var(--dark);
+}
+.skills td { vertical-align: top; padding: 3px 0; }
+
+.entry { margin-bottom: 20px; }
+.entry:last-child { margin-bottom: 0; }
+.row { display: flex; justify-content: space-between; align-items: baseline; gap: 16px; }
+.title { font-size: 1.1rem; line-height: 1.3; font-weight: 700; color: var(--dark); }
+.title .kw { font-weight: 700; }
+.location { font-size: .95rem; font-style: italic; color: var(--accent); text-align: right; flex: none; max-width: 50%; }
+.subrow { margin-top: 5px; }
+.subrow .position { font-size: .98rem; color: var(--gray); }
+.subrow .position .kw { color: var(--accent); }
+.date { font-size: .85rem; font-style: italic; color: var(--gray); text-align: right; flex: none; }
+.date .bar { margin: 0 .6em; }
+.items .position { font-size: .98rem; color: var(--gray); }
+.items .position .kw { color: var(--accent); }
+
+.items { list-style: none; margin-top: 3px; }
+.items li { position: relative; padding-left: 14px; margin-top: 2px; color: var(--text); }
+.items li::before { content: "•"; position: absolute; left: 2px; top: 0; font-size: .75em; line-height: 1.9; color: var(--gray); }
+.items li > a:not(.credential):not(.plain) { overflow-wrap: anywhere; }
+.items li > a { color: inherit; }
+.items li > a.kw { color: var(--accent); }
+
+.credential {
+  font-family: ui-monospace, "SF Mono", Menlo, Consolas, monospace; font-size: .68rem;
+  color: var(--light); font-weight: 400; overflow-wrap: anywhere;
+}
+.title.cert { font-size: 1.1rem; }
+.title.cert .credential { margin-left: .4em; }
+
+/* Footer */
+.footer {
+  margin-top: 40px; padding-top: 0;
+  display: flex; justify-content: space-between; gap: 12px; flex-wrap: wrap;
+  font-variant-caps: small-caps; letter-spacing: .02em; font-size: .9rem; color: var(--light);
+}
+.footer .kw { color: inherit; font-weight: inherit; }
+
+/* Small screens */
+@media (max-width: 640px) {
+  :root { --gutter: 16px; }
+  .page { padding-top: 24px; }
+  .section h2 { font-size: 1.6rem; }
+  .row { flex-direction: column; align-items: flex-start; gap: 1px; }
+  .location, .date { text-align: left; max-width: none; flex: initial; }
+  .subrow { gap: 2px; }
+  .skills, .skills tbody, .skills tr, .skills th, .skills td { display: block; width: auto; }
+  .skills th { text-align: left; padding: 8px 0 0; white-space: normal; }
+  .skills td { padding: 0 0 4px; }
+  .footer { flex-direction: column; gap: 2px; }
+}
+
+/* Print: the buttons disappear, the layout stays compact */
+@page { size: A4; margin: 14mm 16mm; }
+@media print {
+  body { font-size: 10pt; }
+  .page { max-width: none; padding: 0; }
+  .actions { display: none; }
+  .chevron { display: none; }
+  .section > summary { cursor: default; }
+  .entry, .skills tr { break-inside: avoid; }
+  .section h2 { break-after: avoid; }
+  a { color: inherit; }
+}
